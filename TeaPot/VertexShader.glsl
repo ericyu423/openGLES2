@@ -1,13 +1,8 @@
-//
-//  SimpleVertexShader.glsl
-//  teapotFun
-//
-//  Created by eric yu on 6/3/17.
-//  Copyright © 2017 eric yu. All rights reserved.
-//
 
-attribute vec4 a_Position
+attribute vec4 a_Position;
 
-void main(void) {
-    gl_Position = a_Position
+void main()
+{
+    gl_Position = a_Position;
+    //gl_Position = vec4 (a_Position.x,a_Position.y,0,1);
 }

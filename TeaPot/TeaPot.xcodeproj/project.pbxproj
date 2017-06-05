@@ -118,8 +118,8 @@
 		D43BF4631EE4C9B200425B95 /* shaders */ = {
 			isa = PBXGroup;
 			children = (
-				D43BF45F1EE4C98D00425B95 /* FragmentShader.glsl */,
 				D43BF4601EE4C98D00425B95 /* VertexShader.glsl */,
+				D43BF45F1EE4C98D00425B95 /* FragmentShader.glsl */,
 			);
 			name = shaders;
 			sourceTree = "<group>";
