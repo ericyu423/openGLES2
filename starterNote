@@ -1,0 +1,56 @@
+# Learning Notes
+
+# basic setup from storyboard
+
+*drag          GLViewController to storyboard, it's base view is GLKView
+
+*set           @IBOutlet var glView: GLKView!
+
+*frameRate     self.preferredFramesPerSecond = 60
+
+*context       glView.context = EAGLContext(api: .openGLES2)
+
+# in code
+
+var glView:GLKView!
+
+glView = view as! GLKView
+
+inside GLViewController subclass
+called update() 
+
+
+following is the example of using glkViewControllerUpdate(), this will not work inside GLViewController subclass
+directly
+
+            class ViewController: GKLViewController{
+                var glkUpdater: GLKUpdater!
+                override func viewDidload(){
+                    self.glkUpdater = GLKUpdater(glkViewController: self)
+                    self.delegate = glkUpdater
+                }
+                override func glkView(_ view: GLKView, drawIn rect: CGRect) {
+                    glClearColor(Float(glkUpdater.redValue), 0.0, 0.0, 1.0)
+                }
+            }
+            class GLKUpdater : NSObject, GLKViewControllerDelegate {
+                weak var glkViewController : GLKViewController!
+                init(glkViewController : GLKViewController) {
+                    self.glkViewController = glkViewController
+                }
+                func glkViewControllerUpdate(_ controller: GLKViewController) {
+                }
+            }
+
+// function review
+
+//  y = c sin(ax) + k, where c,a, k are constants
+
+ [1c,-1c] expand and contract
+ 
+ [1c,-1c] + k this shift the range
+ 
+ sin(ax) as a gets bigger, cycle is faster too
+ 
+ *reason (assume x is time) when time is 2pi seconds it goes through one cycle, if you put a multipication factor 
+ infront you will reach 2pi faster 
