@@ -96,4 +96,21 @@ raster represent in small tiny boxes
 and on every pixel cover, fragment shader is called to color in stuff
 
 
+# Weird bugs and Patterns 
+
+
+    glEnableVertexAttribArray(0) 
+MUST BE in side either
+ 
+    func update(){
+            //enable vertex attri
+        
+    }
+    override func glkView(_ view: GLKView, drawIn rect: CGRect) {
+            //enable vertex attri
+    }
+    
+if is not there it will not draw...maybe I can figure out why later     
+ 
+        
 
