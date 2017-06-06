@@ -31,11 +31,14 @@
        
        glDrawArrays(GLenum(GL_TRIANGLES), 0, 3)
        
+# 3 is number of points in your model, DO NOT CONFUSED IT WITH array.count
+
+for (x,y,z) every 3 is a point (x,y) every 2 is a point 
+       
        
        //optional
        //glDisableVertexAttribArray 
-       //not going to use it
-       //unless I start getting errors
+
 
 
 
