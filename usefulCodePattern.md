@@ -30,6 +30,12 @@
        //glUniform4f(glGetUniformLocation(program, "color"), 1,1,0,1)
        
        glDrawArrays(GLenum(GL_TRIANGLES), 0, 3)
+       
+       
+       //optional
+       //glDisableVertexAttribArray 
+       //not going to use it
+       //unless I start getting errors
 
 
 
