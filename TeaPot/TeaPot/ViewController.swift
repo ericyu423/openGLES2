@@ -29,7 +29,8 @@ class ViewController: GLKViewController {
         
         glkView.drawableColorFormat = .RGBA8888 //8 bit each true color
         /***************************************************/
-        //32 bit format
+        //32 bit format, defaultl is RGBA8888 so don't need this line
+        //unless you are setting it to something else
         /***************************************************/
         
         EAGLContext.setCurrent(glkView.context)
@@ -85,7 +86,7 @@ class ViewController: GLKViewController {
         // po String(GL_COLOR_BUFFER_BIT, radix: 2)
         // "100000000000000" = 16384
         /***************************************************/
-      
+       
         
         teaPotSprite.draw()
     }

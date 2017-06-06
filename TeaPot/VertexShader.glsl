@@ -1,5 +1,8 @@
 
 attribute vec4 a_Position;
+//layout (location = 0) in vec4 a_Position;
+//attribute - storage qualifier
+//a_Position data will be transfer by openGL
 
 void main()
 {

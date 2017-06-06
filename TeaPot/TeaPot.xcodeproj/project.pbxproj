@@ -12,12 +12,12 @@
 		D407E6511EE35000009E7EE0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D407E64F1EE35000009E7EE0 /* Main.storyboard */; };
 		D407E6531EE35000009E7EE0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D407E6521EE35000009E7EE0 /* Assets.xcassets */; };
 		D407E6561EE35000009E7EE0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D407E6541EE35000009E7EE0 /* LaunchScreen.storyboard */; };
-		D407E6601EE35067009E7EE0 /* teapot.swift in Sources */ = {isa = PBXBuildFile; fileRef = D407E65E1EE35067009E7EE0 /* teapot.swift */; };
 		D407E6631EE35128009E7EE0 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D407E6621EE35128009E7EE0 /* GLKit.framework */; };
 		D43BF4521EE3DB8400425B95 /* Vector.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43BF4511EE3DB8400425B95 /* Vector.swift */; };
 		D43BF4541EE3E79800425B95 /* TeaPotSprite.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43BF4531EE3E79800425B95 /* TeaPotSprite.swift */; };
 		D43BF4611EE4C98D00425B95 /* FragmentShader.glsl in Resources */ = {isa = PBXBuildFile; fileRef = D43BF45F1EE4C98D00425B95 /* FragmentShader.glsl */; };
 		D43BF4621EE4C98D00425B95 /* VertexShader.glsl in Resources */ = {isa = PBXBuildFile; fileRef = D43BF4601EE4C98D00425B95 /* VertexShader.glsl */; };
+		D48B340B1EE750B1009B1676 /* teapot.swift in Sources */ = {isa = PBXBuildFile; fileRef = D407E65E1EE35067009E7EE0 /* teapot.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -199,8 +199,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D48B340B1EE750B1009B1676 /* teapot.swift in Sources */,
 				D43BF4541EE3E79800425B95 /* TeaPotSprite.swift in Sources */,
-				D407E6601EE35067009E7EE0 /* teapot.swift in Sources */,
 				D407E64E1EE35000009E7EE0 /* ViewController.swift in Sources */,
 				D43BF4521EE3DB8400425B95 /* Vector.swift in Sources */,
 				D407E64C1EE35000009E7EE0 /* AppDelegate.swift in Sources */,

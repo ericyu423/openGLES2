@@ -11,6 +11,52 @@ import GLKit
 
 class TeaPotSprite{
     
+   // let teapotVertices: Int =  36
+    
+/*
+    
+    let teapotPositions:[Float] =
+        
+        [
+            1, -1, -1,
+            1, -1, 1,
+            -1, -1, 1,
+            1, -1, -1,
+            -1, -1, 1,
+            -1, -1, -1,
+            1, 1, -0.999999,
+            -1, 1, -1,
+            -1, 1, 1,
+            1, 1, -0.999999,
+            -1, 1, 1,
+            0.999999, 1, 1,
+            1, -1, -1,
+            1, 1, -0.999999,
+            0.999999, 1, 1,
+            1, -1, -1,
+            0.999999, 1, 1,
+            1, -1, 1,
+            1, -1, 1,
+            0.999999, 1, 1, 
+            -1, 1, 1, 
+            1, -1, 1, 
+            -1, 1, 1, 
+            -1, -1, 1, 
+            -1, -1, 1, 
+            -1, 1, 1, 
+            -1, 1, -1, 
+            -1, -1, 1, 
+            -1, 1, -1, 
+            -1, -1, -1, 
+            1, 1, -0.999999, 
+            1, -1, -1, 
+            -1, -1, -1, 
+            1, 1, -0.999999, 
+            -1, -1, -1, 
+            -1, 1, -1]*/
+    
+    var vbo: GLuint = 0
+    
     static private var program: GLuint = 0
     
     /***************************************************/
@@ -132,9 +178,17 @@ class TeaPotSprite{
         program = glCreateProgram()
         glAttachShader(program, vertexShader)
         glAttachShader(program, fragmentShader)
-        glLinkProgram(program)
-                                
+        /***************************************************/
+        // index have to match glEnableVertexAttribArra(0)
+        // default there are only 16 attribute arrays
+        // only 0 works in this case I have no idea why
+        //MARK: WHY ONLY 0 WORKS?
+        /***************************************************/
+       
         glBindAttribLocation(program,0,"a_Position")
+        glLinkProgram(program)
+        
+        
         
         
         
@@ -150,10 +204,13 @@ class TeaPotSprite{
         }
       
         glUseProgram(program)
-        glEnableVertexAttribArray(0)
+        
+    
 
-       
+     
     }
+    
+  
 
     var position: Vector = Vector()
     var width: Float = 1.0
@@ -163,19 +220,54 @@ class TeaPotSprite{
     func draw(){
         if TeaPotSprite.program == 0{
             TeaPotSprite.setup()
+          
+            setupVertexBufferObject()
             setMatrices()
         }
-
-        glVertexAttribPointer(0, 3, GLenum(GL_FLOAT), GLboolean(GL_FALSE), 0, teapotPositions)
-
-        glDrawArrays(GLenum(GL_TRIANGLES), 0, GLsizei(teapotVertices))
-        glEnable(GLenum(GL_CULL_FACE))
+        
+  
+        
+        
+    
+     
+        glEnableVertexAttribArray(0)
+       
+       
+        /***************************************************/
+        // glVertexAttribPointer(0, 3, GLenum(GL_FLOAT), GLboolean(GL_FALSE),12,teapotPositions)
+        //teapotPositions, field before is 12 (each point represent by 4 bits 
+        //4*3
+        //
+        // glVertexAttribPointer(0, 3, GLenum(GL_FLOAT), GLboolean(GL_FALSE),12, nil)
+        /***************************************************/
+        // commented out, because we are using buffer memory to
+        //draw last field is nil
+        
+        
+        
+       // can be insdie update or override func glkView
+        
+       glDrawArrays(GLenum(GL_TRIANGLES), 0, GLsizei(teapotVertices))
+ 
+        /***************************************************/
+        //mode: how to draw it
+        //GL_TRIANGLES
+        //GL_TRIANGLES_STRIP  //not good for 3D u get extra lines
+        //GL_TRIANGLES_FAN
+        //first: which point do you draw first
+        //count: how many points
+        //  DO NOT BE CONFUSED POINTS WITH ARRAY IF FLOATS
+        //  3 FLOATS = 1 POINT THIS IS ASKING FOR POINTS!!!
+        /***************************************************/
+       
+        //glDrawArrays(GLenum(GL_TRIANGLES), 0, GLsizei(teapotPositions.count))
+        //glEnable(GLenum(GL_CULL_FACE))
        
     }
    
     func setMatrices()//before draw tea pot
     {
-        var effect = GLKBaseEffect()
+        let effect = GLKBaseEffect()
 
         let aspectRatio: GLfloat = (GLfloat) (UIScreen.main.bounds.size.width) / (GLfloat) (UIScreen.main.bounds.size.height)
         
@@ -190,15 +282,45 @@ class TeaPotSprite{
         effect.transform.modelviewMatrix = modelViewMatrix
         effect.prepareToDraw()
     }
-    //MARK: Not used currently
-    func setupVBOs() {
+
+    func setupVertexBufferObject() {
         //vbo := vertexBufferObject
-        var vbo: GLuint = 0
-        glGenBuffers(1, &vbo)
-        
+    
+        glGenBuffers(GLsizei(1), &vbo)
         glBindBuffer(GLenum(GL_ARRAY_BUFFER), vbo);
-        glBufferData(GLenum(GL_ARRAY_BUFFER), teapotVertices, teapotPositions, GLenum(GL_STATIC_DRAW))
-  
+        glBufferData(GLenum(GL_ARRAY_BUFFER), MemoryLayout<Float>.size * teapotPositions.count, teapotPositions, GLenum(GL_STATIC_DRAW))
+        /***************************************************/
+        //  MemoryLayout<Float>.size * teapotPositions.count
+        //  this allocate memory for Buffer
+        //  teapotPositions - this put in the whole 
+        //  array of numbers in buffer
+        //  float size = 4 bits, glfloat = 8
+        /***************************************************/
+        
+        
+        
+         glVertexAttribPointer(0, 3, GLenum(GL_FLOAT), GLboolean(GL_FALSE),0, nil)
+        
+        /***************************************************/
+        //index
+        //size: dimensions 2,3 ect
+        //type:  GLenum(GL_FLOAT)  what kind of bits
+        //normalzied: GLboolean(GL_FALSE) size screen probably x[-1,1],y[-1,1]
+        //stride: might be other things in betweeen, how many extra stuff
+        //        is inbetween each point, a some model vectors are created
+        //        with mixed data, not just 1 for model , 1 for shade ect
+        //  so use skip, use skip
+        // we are going to use 8 bit, skip 8 bit so
+        //stride = 12, or 0 it will now is tighly packed if u give it zero value
+        // 12 because 3 dimesnion each dimenion use up 4 bits
+        //
+        //ptr = nil if is from buffer or your vertex array if you don't use
+        //buffer
+        /***************************************************/
+   
+        
+        
+         
     }
 
 
