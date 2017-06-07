@@ -57,8 +57,7 @@ class ViewController: GLKViewController {
         //Values specified by glClearColor are clamped to the range  [0,1]
         /***************************************************/
         
-        setMatrices()
-    
+            
     }
 
     /***************************************************/
@@ -86,28 +85,11 @@ class ViewController: GLKViewController {
         // po String(GL_COLOR_BUFFER_BIT, radix: 2)
         // "100000000000000" = 16384
         /***************************************************/
-       
+      // setMatrices()
         
         teaPotSprite.draw()
     }
 
 }
 
-extension ViewController {
-    func setMatrices()//before draw tea pot
-    {
-       let effect = GLKBaseEffect()
-        let aspectRatio: GLfloat = (GLfloat)(view.bounds.size.width) / (GLfloat)(view.bounds.size.height)
-        let fieldView: GLfloat = GLKMathDegreesToRadians(90.0)
-        let projectionMatrix: GLKMatrix4 = GLKMatrix4MakePerspective(fieldView, aspectRatio, 0.1, 10.0)
-        effect.transform.projectionMatrix = projectionMatrix
-
-        // ModelView Matrix
-        var modelViewMatrix: GLKMatrix4 = GLKMatrix4Identity
-        modelViewMatrix = GLKMatrix4Translate(modelViewMatrix, 0.0, 0.0, -5.0)
-        modelViewMatrix = GLKMatrix4RotateX(modelViewMatrix, GLKMathDegreesToRadians(45.0)) //45
-        effect.transform.modelviewMatrix = modelViewMatrix
-        effect.prepareToDraw()
-    }
-}
 

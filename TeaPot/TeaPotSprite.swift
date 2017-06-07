@@ -10,10 +10,10 @@ import Foundation
 import GLKit
 
 class TeaPotSprite{
+    /*
+   let teapotVertices: Int =  36
     
-   // let teapotVertices: Int =  36
-    
-/*
+
     
     let teapotPositions:[Float] =
         
@@ -220,19 +220,14 @@ class TeaPotSprite{
     func draw(){
         if TeaPotSprite.program == 0{
             TeaPotSprite.setup()
-          
+
             setupVertexBufferObject()
             setMatrices()
+      
         }
-        
   
-        
-        
-    
-     
         glEnableVertexAttribArray(0)
-       
-       
+
         /***************************************************/
         // glVertexAttribPointer(0, 3, GLenum(GL_FLOAT), GLboolean(GL_FALSE),12,teapotPositions)
         //teapotPositions, field before is 12 (each point represent by 4 bits 
@@ -246,6 +241,87 @@ class TeaPotSprite{
         
         
        // can be insdie update or override func glkView
+        
+       
+        
+        
+        let aspectRatio: GLfloat = (GLfloat) (UIScreen.main.bounds.size.width) / (GLfloat) (UIScreen.main.bounds.size.height)
+        
+        let fieldView: GLfloat = GLKMathDegreesToRadians(90.0)
+        // let projection:mat4 = SGLMath.ortho(0.0, 800.0, 0.0, 600.0, 0.1, 100.0)
+        let projectionMatrix: GLKMatrix4 = GLKMatrix4MakePerspective(fieldView, aspectRatio, 0.1, 10.0)
+
+        
+        //var model = SGLMath.rotate(mat4(), radians(-55.0), vec3(1.0, 0.0, 0.0))
+        var modelViewMatrix: GLKMatrix4 = GLKMatrix4Identity
+        //[1 0 0 0 ]
+        //[0 1 0 0 ]
+        //[0 0 1 0 ]
+        //[0 0 0 1 ]
+        
+        //trasnslatoni Matrix
+        //[1 0 0 X ]
+        //[0 1 0 Y ]
+        //[0 0 1 Z ]
+        //[0 0 0 1 ]
+        
+        //to scale
+        //[1*s 0   0  0  ]
+        //[0  1*s  0  0  ]  *  [x, y, z, 1 ] ^t
+        //[0   0  1*s 0  ]
+        //[0   0   0 1*s ]
+        
+        //to trasnlate
+        //                       [x]
+        // traanstation matrix * [y]    // (x,y,z,1)^t this is your point
+        //                       [z]
+        //                       [1]
+        modelViewMatrix = GLKMatrix4Translate(modelViewMatrix, 0.0, 0.0, -5.0)
+        
+       
+        //[1 0 0 0 ]
+        //[0 1 0 0 ]
+        //[0 0 1 -5 ]
+        //[0 0 0 1 ]
+        
+        //modelViewMatrix = GLKMatrix4Scale(modelViewMatrix, 2, 2, 2)
+        
+        modelViewMatrix = GLKMatrix4RotateX(modelViewMatrix, GLKMathDegreesToRadians(45)) //45
+        //rotate x  a is radian
+        //[1   0       0       0]
+        //[0 cos(-a) -sin(-a)  0]
+        //[0 sin(-a)  cos(-a)  0]
+        //[0   0       0       1]
+        
+        //rotate y
+        //[cos(-a)   0   -sin(-a)    0]
+        //[0         1       0       0]
+        //[sin(-a)   0   cos(-a)     0]
+        //[0         0       0       1]
+        
+        //rotate z
+        //[cos(-a)   -sin(-a)   0    0]
+        //[sin(-a)   cos(-a)    0    0]
+        //[0         0          0    0]
+        //[0         0          0    1]
+        
+       // SGLMath.translate(mat4(), vec3(0.0, 0.0, -3.0))
+        //TODO:
+        
+      // let p =  glGetUniformLocation(TeaPotSprite.program, "projection")
+      // let m =  glGetUniformLocation(TeaPotSprite.program, "model")
+   
+        
+       // glUniformMatrix4fv(p, 1, GLboolean(GL_FALSE), projectionMatrix.array)
+        
+        /***************************************************/
+        // count is 1 if is not an array of matrices
+        /***************************************************/
+       // glUniformMatrix4fv(m, 1, GLboolean(GL_FALSE), modelViewMatrix.array)
+
+       
+        
+        
         
        glDrawArrays(GLenum(GL_TRIANGLES), 0, GLsizei(teapotVertices))
  
@@ -267,20 +343,41 @@ class TeaPotSprite{
    
     func setMatrices()//before draw tea pot
     {
+        /***************************************************/
+        //this function can be called to bind the effect to default
+        //instead of calling custom shader using
+        // let p =  glGetUniformLocation(TeaPotSprite.program, "projection")
+        // let m =  glGetUniformLocation(TeaPotSprite.program, "model")
+        // glUniformMatrix4fv(p, 1, GLboolean(GL_FALSE), projectionMatrix.array)
+        
+        /***************************************************/
+        // count is 1 if is not an array of matrices
+        /***************************************************/
+        // glUniformMatrix4fv(m, 1, GLboolean(GL_FALSE), modelViewMatrix.array)
+        //
+        /***************************************************/
+        
+        
         let effect = GLKBaseEffect()
+        
+        //color stuff
+         effect.constantColor = GLKVector4Make(0, 0, 1, 1)
 
         let aspectRatio: GLfloat = (GLfloat) (UIScreen.main.bounds.size.width) / (GLfloat) (UIScreen.main.bounds.size.height)
         
+        
+        //Projection Matrix
         let fieldView: GLfloat = GLKMathDegreesToRadians(90.0)
         let projectionMatrix: GLKMatrix4 = GLKMatrix4MakePerspective(fieldView, aspectRatio, 0.1, 10.0)
         effect.transform.projectionMatrix = projectionMatrix
 
+        
         // ModelView Matrix
         var modelViewMatrix: GLKMatrix4 = GLKMatrix4Identity
         modelViewMatrix = GLKMatrix4Translate(modelViewMatrix, 0.0, 0.0, -5.0)
         modelViewMatrix = GLKMatrix4RotateX(modelViewMatrix, GLKMathDegreesToRadians(45.0)) //45
         effect.transform.modelviewMatrix = modelViewMatrix
-        effect.prepareToDraw()
+        effect.prepareToDraw() //An effect binds a compiled shader program to the context and returns
     }
 
     func setupVertexBufferObject() {

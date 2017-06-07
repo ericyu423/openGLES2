@@ -18,6 +18,7 @@
 		D43BF4611EE4C98D00425B95 /* FragmentShader.glsl in Resources */ = {isa = PBXBuildFile; fileRef = D43BF45F1EE4C98D00425B95 /* FragmentShader.glsl */; };
 		D43BF4621EE4C98D00425B95 /* VertexShader.glsl in Resources */ = {isa = PBXBuildFile; fileRef = D43BF4601EE4C98D00425B95 /* VertexShader.glsl */; };
 		D48B340B1EE750B1009B1676 /* teapot.swift in Sources */ = {isa = PBXBuildFile; fileRef = D407E65E1EE35067009E7EE0 /* teapot.swift */; };
+		D48B340D1EE7BF6F009B1676 /* GLKMatrixArrayHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48B340C1EE7BF6F009B1676 /* GLKMatrixArrayHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		D43BF4531EE3E79800425B95 /* TeaPotSprite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeaPotSprite.swift; sourceTree = "<group>"; };
 		D43BF45F1EE4C98D00425B95 /* FragmentShader.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = FragmentShader.glsl; sourceTree = "<group>"; };
 		D43BF4601EE4C98D00425B95 /* VertexShader.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = VertexShader.glsl; sourceTree = "<group>"; };
+		D48B340C1EE7BF6F009B1676 /* GLKMatrixArrayHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GLKMatrixArrayHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +120,7 @@
 		D43BF4631EE4C9B200425B95 /* shaders */ = {
 			isa = PBXGroup;
 			children = (
+				D48B340C1EE7BF6F009B1676 /* GLKMatrixArrayHelper.swift */,
 				D43BF4601EE4C98D00425B95 /* VertexShader.glsl */,
 				D43BF45F1EE4C98D00425B95 /* FragmentShader.glsl */,
 			);
@@ -200,6 +203,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D48B340B1EE750B1009B1676 /* teapot.swift in Sources */,
+				D48B340D1EE7BF6F009B1676 /* GLKMatrixArrayHelper.swift in Sources */,
 				D43BF4541EE3E79800425B95 /* TeaPotSprite.swift in Sources */,
 				D407E64E1EE35000009E7EE0 /* ViewController.swift in Sources */,
 				D43BF4521EE3DB8400425B95 /* Vector.swift in Sources */,
