@@ -1,0 +1,14 @@
+# shaders instead of creating your own shader you can use
+
+very simple but I guess, you won't learn how shaders works in another language
+
+
+        func setMatrices()//before draw tea pot
+         {
+                let effect = GLKBaseEffect()
+
+                 effect.constantColor = GLKVector4Make(1, 1, 0, 1)
+                 effect.transform.projectionMatrix = projectionMatrix
+                 effect.transform.modelviewMatrix = modelViewMatrix
+                 effect.prepareToDraw()
+          }
