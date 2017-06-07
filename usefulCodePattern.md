@@ -40,6 +40,29 @@ for (x,y,z) every 3 is a point (x,y) every 2 is a point
        //glDisableVertexAttribArray 
 
 
+#stride
+
+the folowing are the same
+
+
+            glVertexAttribPointer(
+            0,
+            2,
+            GLenum(GL_FLOAT),
+            GLboolean(GL_FALSE),
+            GLsizei(MemoryLayout<Float>.size), 
+            nil)
+            
+ 
+            
+            glVertexAttribPointer(
+            0,
+            2,
+            GLenum(GL_FLOAT),
+            GLboolean(GL_FALSE),
+            0,
+            nil)
+
 
 
 
