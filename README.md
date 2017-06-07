@@ -9,6 +9,8 @@ todo list:
 * move shape around the screen
 * add textures
 * duplicate model (by accepting user input)
+//done, important: set transformation matrix back to identiy before doing new operations
+
 * explosion with time and recover with time
 * add gravity and bounce to sprites and edges
 
