@@ -112,5 +112,12 @@ MUST BE in side either
     
 if is not there it will not draw...maybe I can figure out why later     
  
-        
+# coordinates
+
+1. local space (you imported model point values)
+
+2. world space
+
+3. view space (where  you look at the world)
+
 
