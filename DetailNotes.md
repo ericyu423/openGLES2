@@ -120,4 +120,66 @@ if is not there it will not draw...maybe I can figure out why later
 
 3. view space (where  you look at the world)
 
+# linear algebea basic 4D matrix that does stuff to your point (order of opertation matters)
+(M1 * M2.... * a)  where a is the point will be at the end of the operation
+
+identiy use this to setup matrix
+
+        [1 0 0 0 ]
+        [0 1 0 0 ]
+        [0 0 1 0 ]
+        [0 0 0 1 ]
+        
+//trasnslation Matrix moves your point
+
+        [1 0 0 X ]
+        [0 1 0 Y ]
+        [0 0 1 Z ]
+        [0 0 0 1 ]
+        
+//notice if point (1,0,0,1)   1 is W...so basically this is where w comes in W serve as a place holder
+//to be used to do this... 1(1) + 0y + 0z + Xw  so if w = 1  X = 2
+// 1 + 2 ..move x  by 2
+        
+//scale  make it bigger or smaller
+
+ //to scale 
+ //GLKMatrix4Scale(modelViewMatrix, 2, 2, 2) this function allow you to pass in a b c
+ 
+        [1*a 0   0  0  ]
+        [0  1*b  0  0  ] 
+        [0   0  1*c 0  ]
+        [0   0   0  1 ]
+        
+        
+//rotate with respect to x, y , z axis
+
+//it will not help you at all to derive these matrix, is just simple busy work
+//there are the baisc tri facts that will help with the algebra
+// sin(theta) = opposite/hypotenuse
+// in 2D coordinate space point P = (cos Thea, sin Theta)
+
+        //rotate x  a is radian
+        //[1   0       0       0]
+        //[0 cos(-a) -sin(-a)  0]
+        //[0 sin(-a)  cos(-a)  0]
+        //[0   0       0       1]
+        
+        //rotate y
+        //[cos(-a)   0   -sin(-a)    0]
+        //[0         1       0       0]
+        //[sin(-a)   0   cos(-a)     0]
+        //[0         0       0       1]
+        
+        //rotate z
+        //[cos(-a)   -sin(-a)   0    0]
+        //[sin(-a)   cos(-a)    0    0]
+        //[0         0          0    0]
+        //[0         0          0    1]
+        
+
+#  what is the reason to understand the above
+
+when your mind understand how things works the mental load with be less, things will 
+become easier because your mind is more relaxed instead of trying to guess what is going on.
 
