@@ -190,7 +190,7 @@ which implies  u+v≤ 1
 
 
 <p align="center">
-  <img src="https://github.com/ericyu423/sizeClassProgrammatically/blob/master/port.png" width="200"/> 
+  <img src="https://github.com/ericyu423/openGLES2/blob/master/Group.png" width="200"/> 
 </p>
 
  
