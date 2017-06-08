@@ -178,8 +178,7 @@ identiy use this to setup matrix
         //[0         0          0    1]
         
 
-#  what is the reason to understand the above
-
-when your mind understand how things works the mental load with be less, things will 
-become easier because your mind is more relaxed instead of trying to guess what is going on.
-
+#  Barycentric Coordinates
+P=uA+vB+wC.
+P=uA+vB+wC.
+ 
