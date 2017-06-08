@@ -179,6 +179,18 @@ identiy use this to setup matrix
         
 
 #  Barycentric Coordinates
-P=uA+vB+wC.
-P=uA+vB+wC.
+P=uA+vB+wC
+u+v+w=1  (normalized := it is equal to 1)
+
+if we know u , v we can find w
+w = 1 - u + v
+which implies  u+v≤ 1
+
+" any 2 baycentric coordinates is less than or equal to 1 "
+
+
+<p align="center">
+  <img src="https://github.com/ericyu423/sizeClassProgrammatically/blob/master/port.png" width="200"/> 
+</p>
+
  
