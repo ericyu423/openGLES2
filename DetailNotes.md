@@ -194,3 +194,8 @@ which implies  u+v≤ 1
 </p>
 
  
+ u =  u area / large triangle
+ v =  v area / large trinagle
+ w  = w area / large triangle
+ 
+ so basically they are ratios
