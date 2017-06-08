@@ -44,6 +44,17 @@ for (x,y,z) every 3 is a point (x,y) every 2 is a point
 
 the folowing are the same
 
+//use skip use skip
+
+(1,2,3,4,5,6)
+
+example 2, 8 stride
+        1, 2 skip
+        2, 3 skip
+        5, 6 skip
+example 3, 8 stride
+        1 , 2 (skip3)
+        4, 5  (skip4)
 
             glVertexAttribPointer(
             0,
