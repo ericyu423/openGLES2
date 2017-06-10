@@ -11,7 +11,7 @@
         glBindBuffer(GLenum(GL_ARRAY_BUFFER), textureBuffer)
         glBufferData(GLenum(GL_ARRAY_BUFFER),Sprite.totalTextureBits, Sprite.quadTextureCoordinate, GLenum(GL_STATIC_DRAW))
         
-# To make this work we need vboBuffer pointer object and and the pointer once we add in more stuff
+# To make this work we need a pointer so we know exactly where to write in glBufferAraay
 
 step1) glGenBuf make a buffer
 step2) Bind to context
