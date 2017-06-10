@@ -106,3 +106,6 @@
 
 
 
+#  Color draw on top of eachother
+
+ forgot to glClear(GL_COLOR_BUFFER_BIT); bofore drawing something new. 
