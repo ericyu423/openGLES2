@@ -11,11 +11,13 @@ currently it can use both the default and custom shaders to do projection/model 
 
 todo list:
 
-* figure out how buffer interact with transformations
-* move shape around the screen
-* add textures
+* figure out how buffer interact with transformations //done june 10th
+* move shape around the screen //done june 10th with buffer data
+* add textures //done june 10th, work with buffer data
 * duplicate model (by accepting user input)
 //done, important: set transformation matrix back to identiy before doing new operations
+
+
 
 * explosion with time and recover with time
 * add gravity and bounce to sprites and edges
