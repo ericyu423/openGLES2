@@ -1,8 +1,6 @@
 # BasicGLTutorial
 
-small steps in openGL each contain in a sprite class
-it will also contian varitey of ways to do the same thing
-
+each sprite class contains a new set of concept in opengl. Ongoing 6/10
 
 # teapot project:
 
@@ -16,6 +14,7 @@ todo list:
 * add textures //done june 10th, work with buffer data
 * duplicate model (by accepting user input)
 //done, important: set transformation matrix back to identiy before doing new operations
+
 
 
 
