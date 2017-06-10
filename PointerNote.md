@@ -58,14 +58,14 @@
                   glVertexAttribPointer(GLuint(GLKVertexAttrib.position.rawValue), 3,GLenum(GL_FLOAT), GLboolean(GL_FALSE), 
                   GLsizei(MemoryLayout.size(ofValue: vertices[0])),nil)
                   
-#Stride: For position:  GLsizei(MemoryLayout.size(ofValue: vertices[0]))
+# Stride: For position:  GLsizei(MemoryLayout.size(ofValue: vertices[0]))
 
    GLsizei(MemoryLayout.size(ofValue: vertices[0])) = 28
    
    read it 28 bits at a time, in other words read one vertices than go to another vertices ( 7-tuple 4 bit each)
 
 
-#Stride -------------------------------------------------
+# Stride -------------------------------------------------
 
                   //each stride is an vertice array than move get 3 of them
 
@@ -74,7 +74,7 @@
                   //GLKVertexAttrib.color.rawValue = 2
                   glEnableVertexAttribArray(GLuint(GLKVertexAttrib.color.rawValue))
                   glVertexAttribPointer(GLuint(GLKVertexAttrib.color.rawValue), 4, GLenum(GL_FLOAT), GLboolean(GL_FALSE),  
-#Stride: For Color:  GLsizei(MemoryLayout.size(ofValue: vertices[0]))
+# Stride: For Color:  GLsizei(MemoryLayout.size(ofValue: vertices[0]))
    (x,y,z, r,g,b,a)
 
    GLsizei(MemoryLayout.size(ofValue: vertices[0])) = 28
@@ -82,11 +82,11 @@
    read it 28 bits at a time, in other words read one vertices than go to another vertices ( 7-tuple 4 bit each)
 
 
-#Stride -------------------------------------------------
+# Stride -------------------------------------------------
 
                        GLsizei(MemoryLayout.size(ofValue: vertices[0])),BUFFER_OFFSET(12))
                        
-#BUFFER_OFFSET: For Color:  GLsizei(MemoryLayout.size(ofValue: vertices[0]))
+# BUFFER_OFFSET: For Color:  GLsizei(MemoryLayout.size(ofValue: vertices[0]))
 
                   glDrawElements(GLenum(GL_TRIANGLES), GLsizei(memSizeIndices/MemoryLayout.size(ofValue: indices[0])), 
                   GLenum(GL_UNSIGNED_BYTE), nil)
