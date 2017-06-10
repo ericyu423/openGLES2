@@ -1,3 +1,9 @@
+# BasicGLTutorial
+
+small steps in openGL each contain in a sprite class
+it will also contian varitey of ways to do the same thing
+
+
 # teapot project:
 
 currently it can use both the default and custom shaders to do projection/model transformations 
