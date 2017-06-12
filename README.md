@@ -1,11 +1,9 @@
-# To Do 
 
-Already know the basics will not be updating this proj anymore.
 
 
 # BasicGLTutorial
 
-each sprite class contains a new set of concept in opengl. Ongoing 6/10
+each sprite class contains a new set of concept in opengl
 
 
 # Convert obj to swift or objC file
