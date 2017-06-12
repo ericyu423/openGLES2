@@ -1,10 +1,6 @@
 # To Do 
 
-understand geometry shader/tessellation apply on teapot - 1 day
-understand explodsion apply on tea pot- 1 day
-
-Goal finish before Monday
-
+Already know the basics will not be updating this proj anymore.
 
 
 # BasicGLTutorial
